@@ -1,0 +1,393 @@
+{
+  "atlas-hub": {
+    "id": "atlas-hub",
+    "name": "Atlas Hub",
+    "desc": "The central smart city of Atlas Valley. Solar panels cover every rooftop. Drones deliver packages overhead. This is where your journey begins.",
+    "type": "city",
+    "connections": {"north": "route-1", "east": "barber-district", "west": "solar-fields"},
+    "npcs": [
+      {
+        "id": "npc_panthera",
+        "name": "panthera_leo",
+        "role": "mentor",
+        "sprite": "🐾",
+        "dialog": [
+          "Welcome to Atlas Valley, traveler. I am panthera_leo, co-founder of this ecosystem.",
+          "The world has changed. Cities run on clean energy. AI manages the grid. But wild creatures still roam.",
+          "These are called AEONS — Atlas Energy Origin Nexus creatures. Born from our technology.",
+          "Take this starter AEON. Your journey as an AEONist begins now.",
+          "Find all 20 AEONS, challenge the 5 Atlas Gym Leaders, and face the Atlas Council."
+        ],
+        "gives_starter": true,
+        "position": {"x": 7, "y": 7}
+      },
+      {
+        "id": "npc_elf",
+        "name": "elf_wizard",
+        "role": "researcher",
+        "sprite": "🧝",
+        "dialog": [
+          "Ah, a new AEONist! I am elf_wizard, Atlas Valley's chief AEON researcher.",
+          "I've catalogued every AEON species in the AAO database.",
+          "The AEON Codex is stored in the Supabase cloud — find creatures to fill it.",
+          "Pro tip: AEONS near wind turbines tend to be Electric type. Near water purifiers? Water type.",
+          "Come back when your Codex has 10+ entries — I have something special for you."
+        ],
+        "position": {"x": 3, "y": 5}
+      },
+      {
+        "id": "npc_barber",
+        "name": "Atlas Barber Scout",
+        "role": "shop",
+        "sprite": "✂️",
+        "dialog": [
+          "Hey! Atlas Barber just opened in the Barber District east of here!",
+          "Best cuts in the whole valley. Drop-in welcome, or book ahead.",
+          "They say the barbers there can channel AEON energy into their grooming techniques..."
+        ],
+        "position": {"x": 5, "y": 9}
+      },
+      {
+        "id": "npc_rookie",
+        "name": "Rookie AEONist",
+        "role": "trainer",
+        "sprite": "👦",
+        "dialog": ["I just got my first AEON! Battle me!"],
+        "battle": {
+          "name": "Rookie AEONist",
+          "team": [{"creature": "VOLTCUB", "level": 5}],
+          "reward": 100,
+          "win_dialog": "Whoa! You're strong! Here, take some credits.",
+          "lose_dialog": "Yes! I won my first battle!"
+        },
+        "position": {"x": 9, "y": 4}
+      }
+    ],
+    "wild_encounters": [],
+    "items": [
+      {"id": "item_potion", "name": "NanoCell", "x": 6, "y": 2, "desc": "Restores 20 HP to one AEON."},
+      {"id": "item_ball", "name": "AEONball", "x": 8, "y": 8, "desc": "Used to capture wild AEONs."}
+    ],
+    "tiles": {
+      "buildings": ["gym", "lab", "mart", "atlas_barber"],
+      "features": ["solar_panels", "drones", "monopattini", "smart_lights"],
+      "terrain": "urban_future"
+    },
+    "gym": {
+      "leader": "npc_gyro",
+      "name": "Gyro",
+      "type": "ELECTRIC",
+      "badge": "Volt Badge",
+      "team": [
+        {"creature": "VOLTCUB", "level": 12},
+        {"creature": "NANOBIT", "level": 14},
+        {"creature": "VOLTERA", "level": 16}
+      ],
+      "reward_tm": "thunderbolt",
+      "intro": "I am Gyro, master of electric AEONS! In Atlas Hub, electricity is life. Let me show you its power!"
+    }
+  },
+  "barber-district": {
+    "id": "barber-district",
+    "name": "Barber District",
+    "desc": "A stylish urban quarter where Atlas Barber's flagship salon stands. Electric scooters line the streets. Barber bots roam freely.",
+    "type": "district",
+    "connections": {"west": "atlas-hub"},
+    "npcs": [
+      {
+        "id": "npc_barboss",
+        "name": "The Barber Boss",
+        "role": "trainer",
+        "sprite": "💈",
+        "dialog": ["Only those with sharp AEONS can sit in my chair. Battle me first!"],
+        "battle": {
+          "name": "The Barber Boss",
+          "team": [
+            {"creature": "NANOBIT", "level": 18},
+            {"creature": "DRONEHAWK", "level": 20}
+          ],
+          "reward": 500,
+          "win_dialog": "Impeccable! Free haircut for life — and a bonus item.",
+          "lose_dialog": "Ha! You're not ready for Atlas Barber yet."
+        },
+        "gives_item_on_win": {"name": "Style Capsule", "effect": "boost_all_stats", "value": 1},
+        "position": {"x": 5, "y": 5}
+      },
+      {
+        "id": "npc_atlasbarber_clerk",
+        "name": "Atlas Barber Receptionist",
+        "role": "shop",
+        "sprite": "💇",
+        "dialog": [
+          "Welcome to Atlas Barber — where style meets the future.",
+          "Drop in anytime or book a session. Our barbers are certified AEON tamers too.",
+          "Visit atlas-barber.github.io to book your appointment!"
+        ],
+        "shop": {
+          "type": "items",
+          "stock": [
+            {"name": "NanoCell", "price": 150, "effect": "heal", "value": 20},
+            {"name": "MaxCell", "price": 350, "effect": "heal", "value": 50},
+            {"name": "AEONball", "price": 200, "effect": "capture"},
+            {"name": "Style Tonic", "price": 500, "effect": "boost_spe", "value": 5}
+          ]
+        },
+        "position": {"x": 7, "y": 3}
+      }
+    ],
+    "wild_encounters": [
+      {"creature": "NANOBIT", "chance": 40, "level_min": 8, "level_max": 14},
+      {"creature": "WINDWHIRL", "chance": 35, "level_min": 6, "level_max": 12},
+      {"creature": "VOLTCUB", "chance": 25, "level_min": 8, "level_max": 13}
+    ],
+    "tiles": {"features": ["atlas_barber_salon", "electric_scooters", "barber_bots"], "terrain": "urban_stylish"}
+  },
+  "solar-fields": {
+    "id": "solar-fields",
+    "name": "Solar Fields",
+    "desc": "Endless solar panel arrays stretch to the horizon. Electric AEONS thrive here, basking in photon energy.",
+    "type": "route",
+    "connections": {"east": "atlas-hub", "north": "wind-ridge"},
+    "npcs": [
+      {
+        "id": "npc_solartech",
+        "name": "Solar Tech Engineer",
+        "role": "trainer",
+        "sprite": "👷",
+        "dialog": ["These fields power 40% of Atlas Valley! And breed the strongest Electric AEONs."],
+        "battle": {
+          "name": "Solar Engineer",
+          "team": [
+            {"creature": "SOLARSEED", "level": 10},
+            {"creature": "VOLTCUB", "level": 12}
+          ],
+          "reward": 250
+        },
+        "position": {"x": 4, "y": 6}
+      }
+    ],
+    "wild_encounters": [
+      {"creature": "VOLTCUB", "chance": 50, "level_min": 5, "level_max": 15},
+      {"creature": "SOLARSEED", "chance": 35, "level_min": 5, "level_max": 12},
+      {"creature": "WINDWHIRL", "chance": 15, "level_min": 8, "level_max": 14}
+    ],
+    "tiles": {"features": ["solar_panels", "charging_stations"], "terrain": "field"}
+  },
+  "route-1": {
+    "id": "route-1",
+    "name": "Eco Route 1",
+    "desc": "A smart highway lined with electric vehicle charging points and wild AEON habitats.",
+    "type": "route",
+    "connections": {"south": "atlas-hub", "north": "nova-city"},
+    "npcs": [
+      {
+        "id": "npc_ev_driver",
+        "name": "EV Driver",
+        "role": "trainer",
+        "sprite": "🚗",
+        "dialog": ["My electric car is powered by Atlas Valley's grid! So are my AEONs!"],
+        "battle": {
+          "name": "EV Driver",
+          "team": [
+            {"creature": "AQUADRON", "level": 8},
+            {"creature": "NANOBIT", "level": 9}
+          ],
+          "reward": 180
+        },
+        "position": {"x": 5, "y": 5}
+      }
+    ],
+    "wild_encounters": [
+      {"creature": "WINDWHIRL", "chance": 40, "level_min": 3, "level_max": 10},
+      {"creature": "AQUADRON", "chance": 35, "level_min": 4, "level_max": 10},
+      {"creature": "NANOBIT", "chance": 25, "level_min": 3, "level_max": 8}
+    ],
+    "tiles": {"features": ["ev_charging", "smart_road", "drones_overhead"], "terrain": "highway"}
+  },
+  "nova-city": {
+    "id": "nova-city",
+    "name": "Nova City",
+    "desc": "Atlas Valley's second great metropolis. Wind turbines crown every skyscraper. Home to the Aero Gym.",
+    "type": "city",
+    "connections": {"south": "route-1", "east": "hydro-coast", "west": "wind-ridge"},
+    "npcs": [
+      {
+        "id": "npc_windboss",
+        "name": "Aero",
+        "role": "gym_leader",
+        "sprite": "🌀",
+        "dialog": [
+          "I am Aero, Nova City's Gym Leader. My AEONS ride the wind between the turbines.",
+          "Only those who have earned the Volt Badge may challenge me.",
+          "Ready to take flight?"
+        ],
+        "position": {"x": 7, "y": 7}
+      },
+      {
+        "id": "npc_tech_merchant",
+        "name": "Tech Merchant",
+        "role": "shop",
+        "sprite": "🏪",
+        "dialog": ["Best tech items in Nova City, right here!"],
+        "shop": {
+          "type": "items",
+          "stock": [
+            {"name": "NanoCell", "price": 150, "effect": "heal", "value": 20},
+            {"name": "MaxCell", "price": 350, "effect": "heal", "value": 50},
+            {"name": "AEONball", "price": 200, "effect": "capture"},
+            {"name": "HyperCell", "price": 700, "effect": "heal", "value": 100},
+            {"name": "Revive Chip", "price": 1000, "effect": "revive", "value": 0.5}
+          ]
+        },
+        "position": {"x": 3, "y": 4}
+      }
+    ],
+    "wild_encounters": [
+      {"creature": "WINDWHIRL", "chance": 45, "level_min": 12, "level_max": 20},
+      {"creature": "DRONEHAWK", "chance": 30, "level_min": 14, "level_max": 22},
+      {"creature": "VOLTCUB", "chance": 25, "level_min": 10, "level_max": 18}
+    ],
+    "gym": {
+      "leader": "Aero",
+      "type": "FLYING",
+      "badge": "Aero Badge",
+      "team": [
+        {"creature": "WINDWHIRL", "level": 25},
+        {"creature": "DRONEHAWK", "level": 27},
+        {"creature": "AEROTITAN", "level": 30}
+      ],
+      "reward_tm": "air-slash",
+      "intro": "The wind is mine to command! Prove your worth against the sky!"
+    }
+  },
+  "wind-ridge": {
+    "id": "wind-ridge",
+    "name": "Wind Ridge",
+    "desc": "A ridge crowned with hundreds of wind turbines. Flying AEONS swarm around the massive blades.",
+    "type": "route",
+    "connections": {"south": "solar-fields", "east": "nova-city"},
+    "wild_encounters": [
+      {"creature": "WINDWHIRL", "chance": 55, "level_min": 10, "level_max": 18},
+      {"creature": "DRONEHAWK", "chance": 30, "level_min": 12, "level_max": 20},
+      {"creature": "AEROTITAN", "chance": 15, "level_min": 20, "level_max": 28}
+    ],
+    "tiles": {"features": ["wind_turbines", "observation_platform"], "terrain": "ridge"}
+  },
+  "hydro-coast": {
+    "id": "hydro-coast",
+    "name": "Hydro Coast",
+    "desc": "Atlas Valley's coastline. Wave energy converters line the shores. Water AEONS surface near the hydrogen plants.",
+    "type": "route",
+    "connections": {"west": "nova-city", "north": "deep-server"},
+    "wild_encounters": [
+      {"creature": "AQUADRON", "chance": 55, "level_min": 15, "level_max": 25},
+      {"creature": "HYDRABOT", "chance": 30, "level_min": 20, "level_max": 30},
+      {"creature": "WINDWHIRL", "chance": 15, "level_min": 12, "level_max": 20}
+    ],
+    "tiles": {"features": ["wave_energy", "hydrogen_plant", "submarine_drones"], "terrain": "coastal"}
+  },
+  "deep-server": {
+    "id": "deep-server",
+    "name": "Deep Server",
+    "desc": "Atlas Valley's underground data center city. Ghost AEONS haunt the server racks. The air hums with electricity.",
+    "type": "city",
+    "connections": {"south": "hydro-coast"},
+    "npcs": [
+      {
+        "id": "npc_crypt",
+        "name": "Crypt",
+        "role": "gym_leader",
+        "sprite": "💀",
+        "dialog": [
+          "You have ventured into the Deep Server... few make it this far.",
+          "I am Crypt, master of Ghost AEONS. Digital phantoms answer to me.",
+          "Your data will be corrupted by the time I'm done with you."
+        ],
+        "position": {"x": 6, "y": 6}
+      }
+    ],
+    "wild_encounters": [
+      {"creature": "GHOSTNET", "chance": 50, "level_min": 22, "level_max": 32},
+      {"creature": "CRYPTSOUL", "chance": 25, "level_min": 28, "level_max": 38},
+      {"creature": "NANOBIT", "chance": 25, "level_min": 20, "level_max": 28}
+    ],
+    "gym": {
+      "leader": "Crypt",
+      "type": "GHOST",
+      "badge": "Phantom Badge",
+      "team": [
+        {"creature": "GHOSTNET", "level": 35},
+        {"creature": "NANOMECH", "level": 37},
+        {"creature": "CRYPTSOUL", "level": 40}
+      ],
+      "reward_tm": "shadow-ball",
+      "intro": "In the Deep Server, your data belongs to me..."
+    }
+  },
+  "atlas-council": {
+    "id": "atlas-council",
+    "name": "Atlas Council Chamber",
+    "desc": "The ultimate challenge. The Atlas Council awaits at the peak of Atlas Valley's tallest arcology. Defeat all 5 members to become the Atlas Champion.",
+    "type": "elite",
+    "connections": {},
+    "locked": true,
+    "unlock_condition": "all_badges",
+    "npcs": [
+      {
+        "id": "council_1",
+        "name": "Aria",
+        "role": "council",
+        "sprite": "🌸",
+        "battle": {
+          "name": "Council Member Aria",
+          "team": [
+            {"creature": "SOLARBLOOM", "level": 50},
+            {"creature": "WINDWHIRL", "level": 52},
+            {"creature": "SOLARION", "level": 55}
+          ],
+          "reward": 5000
+        }
+      },
+      {
+        "id": "council_2",
+        "name": "Volt",
+        "role": "council",
+        "sprite": "⚡",
+        "battle": {
+          "name": "Council Member Volt",
+          "team": [
+            {"creature": "VOLTERA", "level": 52},
+            {"creature": "MECHGOD", "level": 54},
+            {"creature": "VOLTKING", "level": 58}
+          ],
+          "reward": 5500
+        }
+      },
+      {
+        "id": "council_champion",
+        "name": "PANTHERA_LEO",
+        "role": "champion",
+        "sprite": "🐾👑",
+        "dialog": [
+          "You've made it. The Atlas Council has fallen before you.",
+          "I am panthera_leo — not just mentor, but Champion of Atlas Valley.",
+          "My AEONS were forged in the fires of this ecosystem. They are the best.",
+          "This is the ultimate test. Only the strongest AEONist can claim the Atlas Crown.",
+          "Let the final battle begin!"
+        ],
+        "battle": {
+          "name": "Champion panthera_leo",
+          "team": [
+            {"creature": "VOLTKING", "level": 58},
+            {"creature": "AEROTITAN", "level": 60},
+            {"creature": "HYDRABOT", "level": 60},
+            {"creature": "MECHGOD", "level": 62},
+            {"creature": "INFERNOVA", "level": 62},
+            {"creature": "PANTHERIX", "level": 65}
+          ],
+          "reward": 10000
+        }
+      }
+    ]
+  }
+}

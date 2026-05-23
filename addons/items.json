@@ -1,0 +1,20 @@
+{
+  "NanoCell": {"name": "NanoCell", "desc": "A nano-tech healing capsule. Restores 20 HP.", "effect": "heal", "value": 20, "price": 150, "emoji": "💊"},
+  "MaxCell": {"name": "MaxCell", "desc": "Advanced healing. Restores 50 HP.", "effect": "heal", "value": 50, "price": 350, "emoji": "💊"},
+  "HyperCell": {"name": "HyperCell", "desc": "Atlas Valley's best healing tech. Restores 100 HP.", "effect": "heal", "value": 100, "price": 700, "emoji": "💉"},
+  "UltraCell": {"name": "UltraCell", "desc": "Fully restores HP and cures status.", "effect": "full_heal", "value": 9999, "price": 2500, "emoji": "⚕️"},
+  "AEONball": {"name": "AEONball", "desc": "A high-tech capture sphere for wild AEONs.", "effect": "capture", "value": 1.0, "price": 200, "emoji": "🔵"},
+  "GreatAEONball": {"name": "GreatAEONball", "desc": "Enhanced capture sphere. 1.5x capture rate.", "effect": "capture", "value": 1.5, "price": 600, "emoji": "🟣"},
+  "UltraAEONball": {"name": "UltraAEONball", "desc": "Atlas-grade capture sphere. 2x capture rate.", "effect": "capture", "value": 2.0, "price": 1200, "emoji": "⚫"},
+  "Revive Chip": {"name": "Revive Chip", "desc": "Revives a fainted AEON with half HP.", "effect": "revive", "value": 0.5, "price": 1000, "emoji": "🔋"},
+  "Max Revive": {"name": "Max Revive", "desc": "Fully revives a fainted AEON.", "effect": "revive", "value": 1.0, "price": 4000, "emoji": "⚡"},
+  "Antidote Patch": {"name": "Antidote Patch", "desc": "Cures poison status.", "effect": "cure", "ailment": "poison", "price": 100, "emoji": "🟢"},
+  "Burn Gel": {"name": "Burn Gel", "desc": "Cures burn status.", "effect": "cure", "ailment": "burn", "price": 250, "emoji": "🧊"},
+  "Paralysis Chip": {"name": "Paralysis Chip", "desc": "Cures paralysis status.", "effect": "cure", "ailment": "paralysis", "price": 200, "emoji": "🔌"},
+  "Style Capsule": {"name": "Style Capsule", "desc": "Atlas Barber exclusive. Boosts all stats by 1 stage.", "effect": "boost_all_stats", "value": 1, "price": 5000, "emoji": "💈"},
+  "Style Tonic": {"name": "Style Tonic", "desc": "Atlas Barber exclusive. Boosts Speed by 5 permanently.", "effect": "ev_boost", "stat": "spe", "value": 5, "price": 500, "emoji": "⚡"},
+  "Solar Shard": {"name": "Solar Shard", "desc": "A crystallized solar panel fragment. Activates Solar Beam in one turn.", "effect": "weather_boost", "weather": "sunny", "price": 800, "emoji": "☀️"},
+  "Wind Core": {"name": "Wind Core", "desc": "From Atlas Valley's wind turbines. Boosts Flying-type moves.", "effect": "type_boost", "type": "FLYING", "value": 1.2, "price": 700, "emoji": "💨"},
+  "PokeFlute 2.0": {"name": "PokeFlute 2.0", "desc": "A digital instrument. Wakes sleeping AEONs.", "effect": "cure", "ailment": "sleep", "price": 0, "emoji": "🎵"},
+  "Atlas Key": {"name": "Atlas Key", "desc": "Opens locked areas in Atlas Valley.", "effect": "key", "value": "atlas", "price": 0, "emoji": "🔑"}
+}

@@ -1,0 +1,155 @@
+{
+  "VOLTCUB": {
+    "index": 1, "name": "Voltcub", "type": "ELECTRIC", "catch": 45,
+    "xp": "mediumfast", "evolution_level": 18, "evolves_to": "VOLTERA",
+    "total": 295, "hp": 40, "atk": 45, "def": 35, "spa": 50, "spd": 35, "spe": 90,
+    "desc": "A small electric cub born near wind turbine farms. Its fur crackles with stored solar energy.",
+    "moves": [{"name": "spark", "level": 1}, {"name": "quick-attack", "level": 6}, {"name": "thunder-wave", "level": 12}, {"name": "thunderbolt", "level": 20}],
+    "sprite": "⚡🐾", "color": "#F7DC6F", "habitat": "urban"
+  },
+  "VOLTERA": {
+    "index": 2, "name": "Voltera", "type": "ELECTRIC", "catch": 30,
+    "xp": "mediumfast", "evolution_level": 36, "evolves_to": "VOLTKING",
+    "total": 420, "hp": 65, "atk": 70, "def": 55, "spa": 80, "spd": 55, "spe": 95,
+    "desc": "Evolved near solar farms. Can discharge 10,000 volts through its mane.",
+    "moves": [{"name": "spark", "level": 1}, {"name": "thunderbolt", "level": 1}, {"name": "discharge", "level": 22}, {"name": "thunder", "level": 38}],
+    "sprite": "⚡🦁", "color": "#F4D03F", "habitat": "urban"
+  },
+  "VOLTKING": {
+    "index": 3, "name": "Voltking", "type": "ELECTRIC", "catch": 10,
+    "xp": "slow", "total": 580, "hp": 90, "atk": 100, "def": 80, "spa": 120, "spd": 80, "spe": 110,
+    "desc": "The apex predator of Atlas Valley. A living power grid that can charge an entire city.",
+    "moves": [{"name": "thunderbolt", "level": 1}, {"name": "thunder", "level": 1}, {"name": "discharge", "level": 1}, {"name": "volt-tackle", "level": 50}],
+    "sprite": "⚡👑", "color": "#F1C40F", "habitat": "urban"
+  },
+  "SOLARSEED": {
+    "index": 4, "name": "Solarseed", "type": "GRASS", "catch": 45,
+    "xp": "mediumslow", "evolution_level": 16, "evolves_to": "SOLARBLOOM",
+    "total": 310, "hp": 45, "atk": 42, "def": 55, "spa": 48, "spd": 50, "spe": 70,
+    "desc": "A botanical creature grown on Atlas Valley's vertical gardens. Absorbs solar energy to power its attacks.",
+    "moves": [{"name": "absorb", "level": 1}, {"name": "growth", "level": 7}, {"name": "razor-leaf", "level": 13}, {"name": "solar-beam", "level": 22}],
+    "sprite": "🌱⚡", "color": "#58D68D", "habitat": "garden"
+  },
+  "SOLARBLOOM": {
+    "index": 5, "name": "Solarbloom", "type": "GRASS", "catch": 25,
+    "xp": "mediumslow", "evolution_level": 32, "evolves_to": "SOLARION",
+    "total": 430, "hp": 65, "atk": 62, "def": 75, "spa": 75, "spd": 70, "spe": 83,
+    "desc": "Its petals are photovoltaic cells. Found near Atlas Valley's rooftop farms.",
+    "moves": [{"name": "absorb", "level": 1}, {"name": "razor-leaf", "level": 1}, {"name": "solar-beam", "level": 22}, {"name": "petal-blizzard", "level": 35}],
+    "sprite": "🌸⚡", "color": "#27AE60", "habitat": "garden"
+  },
+  "SOLARION": {
+    "index": 6, "name": "Solarion", "type": "GRASS", "catch": 8,
+    "xp": "slow", "total": 560, "hp": 85, "atk": 82, "def": 100, "spa": 110, "spd": 100, "spe": 83,
+    "desc": "A titan of photosynthesis. Its presence accelerates plant growth for kilometers around.",
+    "moves": [{"name": "solar-beam", "level": 1}, {"name": "petal-blizzard", "level": 1}, {"name": "synthesis", "level": 1}, {"name": "leaf-storm", "level": 55}],
+    "sprite": "🌳⚡", "color": "#1E8449", "habitat": "garden"
+  },
+  "AQUADRON": {
+    "index": 7, "name": "Aquadron", "type": "WATER", "catch": 45,
+    "xp": "mediumfast", "evolution_level": 20, "evolves_to": "HYDRABOT",
+    "total": 305, "hp": 50, "atk": 45, "def": 45, "spa": 55, "spd": 50, "spe": 60,
+    "desc": "A small aquatic drone-creature that patrols Atlas Valley's water purification plants.",
+    "moves": [{"name": "water-gun", "level": 1}, {"name": "bubble", "level": 5}, {"name": "aqua-jet", "level": 11}, {"name": "surf", "level": 25}],
+    "sprite": "🌊🤖", "color": "#5DADE2", "habitat": "water"
+  },
+  "HYDRABOT": {
+    "index": 8, "name": "Hydrabot", "type": "WATER", "catch": 15,
+    "xp": "mediumfast", "total": 490, "hp": 80, "atk": 75, "def": 70, "spa": 95, "spd": 80, "spe": 90,
+    "desc": "An evolved water guardian. Guards Atlas Valley's hydrogen energy reactors.",
+    "moves": [{"name": "surf", "level": 1}, {"name": "hydro-pump", "level": 1}, {"name": "aqua-jet", "level": 1}, {"name": "water-spout", "level": 45}],
+    "sprite": "🌊⚡", "color": "#2E86C1", "habitat": "water"
+  },
+  "WINDWHIRL": {
+    "index": 9, "name": "Windwhirl", "type": "FLYING", "catch": 50,
+    "xp": "fast", "evolution_level": 22, "evolves_to": "AEROTITAN",
+    "total": 280, "hp": 35, "atk": 40, "def": 30, "spa": 45, "spd": 40, "spe": 90,
+    "desc": "Born in the wind turbine corridors of Atlas Valley. Can ride thermal currents between towers.",
+    "moves": [{"name": "gust", "level": 1}, {"name": "quick-attack", "level": 5}, {"name": "wing-attack", "level": 14}, {"name": "air-slash", "level": 28}],
+    "sprite": "💨🐦", "color": "#85C1E9", "habitat": "sky"
+  },
+  "AEROTITAN": {
+    "index": 10, "name": "Aerotitan", "type": "FLYING", "catch": 12,
+    "xp": "slow", "total": 530, "hp": 75, "atk": 85, "def": 65, "spa": 100, "spd": 80, "spe": 125,
+    "desc": "A colossal wind spirit that generates clean energy with every wingbeat.",
+    "moves": [{"name": "air-slash", "level": 1}, {"name": "hurricane", "level": 1}, {"name": "sky-attack", "level": 1}, {"name": "aeroblast", "level": 55}],
+    "sprite": "💨🦅", "color": "#3498DB", "habitat": "sky"
+  },
+  "NANOBIT": {
+    "index": 11, "name": "Nanobit", "type": "STEEL", "catch": 60,
+    "xp": "fast", "evolution_level": 15, "evolves_to": "NANOMECH",
+    "total": 255, "hp": 30, "atk": 35, "def": 60, "spa": 30, "spd": 40, "spe": 60,
+    "desc": "A micro-robot creature that assists in Atlas Valley's AI maintenance labs.",
+    "moves": [{"name": "tackle", "level": 1}, {"name": "metal-claw", "level": 6}, {"name": "iron-defense", "level": 10}, {"name": "flash-cannon", "level": 20}],
+    "sprite": "🤖⚙️", "color": "#BDC3C7", "habitat": "urban"
+  },
+  "NANOMECH": {
+    "index": 12, "name": "Nanomech", "type": "STEEL", "catch": 30,
+    "xp": "fast", "evolution_level": 30, "evolves_to": "MECHGOD",
+    "total": 380, "hp": 55, "atk": 60, "def": 90, "spa": 55, "spd": 65, "spe": 55,
+    "desc": "Upgrades itself continuously using scrap metal from Atlas Valley's recycling centers.",
+    "moves": [{"name": "metal-claw", "level": 1}, {"name": "flash-cannon", "level": 1}, {"name": "iron-head", "level": 28}, {"name": "gear-grind", "level": 38}],
+    "sprite": "⚙️🤖", "color": "#95A5A6", "habitat": "urban"
+  },
+  "MECHGOD": {
+    "index": 13, "name": "Mechgod", "type": "STEEL", "catch": 5,
+    "xp": "slow", "total": 600, "hp": 80, "atk": 95, "def": 130, "spa": 95, "spd": 90, "spe": 110,
+    "desc": "The pinnacle of Atlas Valley's AI engineering. Rumored to be self-aware.",
+    "moves": [{"name": "flash-cannon", "level": 1}, {"name": "iron-head", "level": 1}, {"name": "gear-grind", "level": 1}, {"name": "doom-desire", "level": 60}],
+    "sprite": "⚙️👑", "color": "#717D7E", "habitat": "urban"
+  },
+  "PYROFLARE": {
+    "index": 14, "name": "Pyroflare", "type": "FIRE", "catch": 45,
+    "xp": "mediumfast", "evolution_level": 20, "evolves_to": "INFERNOVA",
+    "total": 300, "hp": 42, "atk": 55, "def": 38, "spa": 60, "spd": 38, "spe": 67,
+    "desc": "Spawned near Atlas Valley's geothermal energy plants. Radiates intense heat.",
+    "moves": [{"name": "ember", "level": 1}, {"name": "fire-spin", "level": 8}, {"name": "flame-wheel", "level": 15}, {"name": "flamethrower", "level": 25}],
+    "sprite": "🔥🐆", "color": "#E74C3C", "habitat": "industrial"
+  },
+  "INFERNOVA": {
+    "index": 15, "name": "Infernova", "type": "FIRE", "catch": 10,
+    "xp": "slow", "total": 540, "hp": 78, "atk": 95, "def": 65, "spa": 115, "spd": 75, "spe": 112,
+    "desc": "A supernova in creature form. Atlas Valley's most feared battle companion.",
+    "moves": [{"name": "flamethrower", "level": 1}, {"name": "fire-blast", "level": 1}, {"name": "overheat", "level": 1}, {"name": "v-create", "level": 60}],
+    "sprite": "🔥⭐", "color": "#C0392B", "habitat": "industrial"
+  },
+  "GHOSTNET": {
+    "index": 16, "name": "Ghostnet", "type": "GHOST", "catch": 35,
+    "xp": "mediumfast", "evolution_level": 25, "evolves_to": "CRYPTSOUL",
+    "total": 320, "hp": 40, "atk": 50, "def": 35, "spa": 65, "spd": 45, "spe": 85,
+    "desc": "A digital ghost haunting Atlas Valley's server farms. Feeds on lost data packets.",
+    "moves": [{"name": "lick", "level": 1}, {"name": "shadow-sneak", "level": 7}, {"name": "hex", "level": 13}, {"name": "shadow-ball", "level": 22}],
+    "sprite": "👻💾", "color": "#8E44AD", "habitat": "digital"
+  },
+  "CRYPTSOUL": {
+    "index": 17, "name": "Cryptsoul", "type": "GHOST", "catch": 10,
+    "xp": "slow", "total": 520, "hp": 70, "atk": 85, "def": 65, "spa": 115, "spd": 85, "spe": 100,
+    "desc": "Evolved from centuries of digital entropy. Exists between the real and virtual worlds.",
+    "moves": [{"name": "shadow-ball", "level": 1}, {"name": "hex", "level": 1}, {"name": "dark-pulse", "level": 1}, {"name": "shadow-force", "level": 55}],
+    "sprite": "👻🌐", "color": "#6C3483", "habitat": "digital"
+  },
+  "DRONEHAWK": {
+    "index": 18, "name": "Dronehawk", "type": "FLYING", "catch": 40,
+    "xp": "mediumfast",
+    "total": 340, "hp": 55, "atk": 70, "def": 50, "spa": 55, "spd": 50, "spe": 110,
+    "desc": "An elite scout creature modeled after Atlas Valley's delivery drones. Uncatchable at full speed.",
+    "moves": [{"name": "wing-attack", "level": 1}, {"name": "quick-attack", "level": 5}, {"name": "aerial-ace", "level": 14}, {"name": "brave-bird", "level": 30}],
+    "sprite": "🚁🦅", "color": "#1ABC9C", "habitat": "sky"
+  },
+  "PANTHERIX": {
+    "index": 19, "name": "Pantherix", "type": "DARK", "catch": 3,
+    "xp": "slow", "total": 620,
+    "hp": 95, "atk": 130, "def": 90, "spa": 100, "spd": 90, "spe": 115,
+    "desc": "The legendary companion of panthera_leo. Born from starlight and digital fury. Guardian of Atlas Valley.",
+    "moves": [{"name": "crunch", "level": 1}, {"name": "dark-pulse", "level": 1}, {"name": "night-daze", "level": 1}, {"name": "roar-of-time", "level": 70}],
+    "sprite": "🐾✨", "color": "#C9A84C", "habitat": "legendary", "legendary": true
+  },
+  "ELFSPIRIT": {
+    "index": 20, "name": "Elfspirit", "type": "PSYCHIC", "catch": 3,
+    "xp": "slow", "total": 610,
+    "hp": 85, "atk": 95, "def": 95, "spa": 135, "spd": 110, "spe": 90,
+    "desc": "The ancient companion of elf_wizard. A spirit of arcane knowledge and Atlas Valley wisdom.",
+    "moves": [{"name": "psychic", "level": 1}, {"name": "future-sight", "level": 1}, {"name": "aura-sphere", "level": 1}, {"name": "spacial-rend", "level": 70}],
+    "sprite": "🧝✨", "color": "#00D4FF", "habitat": "legendary", "legendary": true
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "player": {
+    "name": "",
+    "character": "panthera_leo",
+    "credits": 3000,
+    "badges": [],
+    "steps": 0,
+    "battles_won": 0,
+    "battles_lost": 0,
+    "playtime": 0
+  },
+  "location": {
+    "map": "atlas-hub",
+    "x": 7,
+    "y": 7
+  },
+  "team": [],
+  "box": [],
+  "codex": {},
+  "inventory": {
+    "NanoCell": 5,
+    "AEONball": 5
+  },
+  "flags": {
+    "received_starter": false,
+    "met_panthera": false,
+    "met_elf": false,
+    "atlas_hub_gym_cleared": false,
+    "nova_city_gym_cleared": false,
+    "deep_server_gym_cleared": false,
+    "council_cleared": false,
+    "barber_boss_beaten": false
+  },
+  "settings": {
+    "text_speed": "normal",
+    "battle_animations": true,
+    "sound": true,
+    "mobile_controls": true
+  }
+}

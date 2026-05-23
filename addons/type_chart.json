@@ -1,0 +1,20 @@
+{
+  "NORMAL":   {"STEEL": 0.5, "GHOST": 0},
+  "FIRE":     {"GRASS": 2, "ICE": 2, "BUG": 2, "STEEL": 2, "WATER": 0.5, "FIRE": 0.5, "ROCK": 0.5, "DRAGON": 0.5},
+  "WATER":    {"FIRE": 2, "GROUND": 2, "ROCK": 2, "WATER": 0.5, "GRASS": 0.5, "DRAGON": 0.5},
+  "ELECTRIC": {"WATER": 2, "FLYING": 2, "ELECTRIC": 0.5, "GRASS": 0.5, "DRAGON": 0.5, "GROUND": 0},
+  "GRASS":    {"WATER": 2, "GROUND": 2, "ROCK": 2, "FIRE": 0.5, "GRASS": 0.5, "POISON": 0.5, "FLYING": 0.5, "BUG": 0.5, "DRAGON": 0.5, "STEEL": 0.5},
+  "ICE":      {"GRASS": 2, "GROUND": 2, "FLYING": 2, "DRAGON": 2, "FIRE": 0.5, "WATER": 0.5, "ICE": 0.5, "STEEL": 0.5},
+  "FIGHTING": {"NORMAL": 2, "ICE": 2, "ROCK": 2, "DARK": 2, "STEEL": 2, "POISON": 0.5, "BUG": 0.5, "PSYCHIC": 0.5, "FLYING": 0.5, "FAIRY": 0.5, "GHOST": 0},
+  "POISON":   {"GRASS": 2, "FAIRY": 2, "POISON": 0.5, "GROUND": 0.5, "ROCK": 0.5, "GHOST": 0.5, "STEEL": 0},
+  "GROUND":   {"FIRE": 2, "ELECTRIC": 2, "POISON": 2, "ROCK": 2, "STEEL": 2, "GRASS": 0.5, "BUG": 0.5, "FLYING": 0},
+  "FLYING":   {"GRASS": 2, "FIGHTING": 2, "BUG": 2, "ELECTRIC": 0.5, "ROCK": 0.5, "STEEL": 0.5},
+  "PSYCHIC":  {"FIGHTING": 2, "POISON": 2, "PSYCHIC": 0.5, "STEEL": 0.5, "DARK": 0, "GHOST": 0},
+  "BUG":      {"GRASS": 2, "PSYCHIC": 2, "DARK": 2, "FIRE": 0.5, "FIGHTING": 0.5, "FLYING": 0.5, "GHOST": 0.5, "STEEL": 0.5, "FAIRY": 0.5},
+  "ROCK":     {"FIRE": 2, "ICE": 2, "FLYING": 2, "BUG": 2, "FIGHTING": 0.5, "GROUND": 0.5, "STEEL": 0.5},
+  "GHOST":    {"GHOST": 2, "PSYCHIC": 2, "DARK": 0.5, "NORMAL": 0},
+  "DRAGON":   {"DRAGON": 2, "STEEL": 0.5, "FAIRY": 0},
+  "DARK":     {"GHOST": 2, "PSYCHIC": 2, "FIGHTING": 0.5, "DARK": 0.5, "FAIRY": 0.5},
+  "STEEL":    {"ICE": 2, "ROCK": 2, "FAIRY": 2, "FIRE": 0.5, "WATER": 0.5, "ELECTRIC": 0.5, "STEEL": 0.5},
+  "FAIRY":    {"FIGHTING": 2, "DRAGON": 2, "DARK": 2, "FIRE": 0.5, "POISON": 0.5, "STEEL": 0.5}
+}
