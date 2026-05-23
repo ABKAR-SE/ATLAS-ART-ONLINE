@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="theme-color" content="#080a0e"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <title>AAO — Atlas Art Online</title>
+  <meta name="description" content="AAO - Atlas Art Online. Il primo gioco open source stile Pokémon nell'universo Atlas Valley. Esplora, cattura AEON, batti gli Atlas Gym Leader."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=VT323&family=Share+Tech+Mono&family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ============================================================
+     SCREEN: INTRO / LANDING
+     ============================================================ -->
+<div id="screen-intro" class="screen active">
+  <div class="intro-bg">
+    <div class="grid-overlay"></div>
+    <div class="scanlines"></div>
+    <div class="stars" id="stars"></div>
+  </div>
+  <div class="intro-content">
+    <div class="intro-badge">ATLAS VALLEY ECOSYSTEM · OPEN SOURCE</div>
+    <div class="intro-logo">
+      <span class="logo-aao">AAO</span>
+      <div class="logo-subtitle">ATLAS ART ONLINE</div>
+    </div>
+    <p class="intro-tagline">
+      Il primo gioco open source stile Pokémon GBA<br/>
+      nell'universo <strong>Atlas Valley</strong> × <em>Sword Art Online</em>
+    </p>
+    <div class="intro-desc">
+      <p>Nei territori di Atlas Valley — città del futuro alimentate da pannelli solari, turbine eoliche e droni autonomi — vivono creature straordinarie chiamate <strong>AEON</strong> (Atlas Energy Origin Nexus). Nate dall'energia pulita di questo ecosistema, ogni AEON porta in sé il DNA tecnologico e spirituale di Atlas Valley.</p>
+      <p>Esplora il mondo come <strong>panthera_leo</strong> o <strong>elf_wizard</strong>. Cattura gli AEON. Sfida i 5 Atlas Gym Leader. Diventa il Campione dell'Atlas Council.</p>
+    </div>
+    <div class="intro-features">
+      <div class="if-item"><span>⚡</span><p>20 AEON originali</p></div>
+      <div class="if-item"><span>🗺️</span><p>Mondo esplorabile</p></div>
+      <div class="if-item"><span>🏆</span><p>5 Gym + Council</p></div>
+      <div class="if-item"><span>📱</span><p>Mobile-first</p></div>
+      <div class="if-item"><span>💾</span><p>Cloud Save</p></div>
+      <div class="if-item"><span>✂️</span><p>Atlas Barber</p></div>
+    </div>
+    <div class="intro-credits-row">
+      <div class="ic-item"><span>🐾</span><strong>panthera_leo</strong><small>Game Director</small></div>
+      <div class="ic-divider">×</div>
+      <div class="ic-item"><span>🧝</span><strong>elf_wizard</strong><small>Lead Designer</small></div>
+    </div>
+    <div class="intro-ctas">
+      <button class="btn-primary btn-glow" onclick="showScreen('screen-newgame')">⚡ INIZIA L'AVVENTURA</button>
+      <button class="btn-secondary" onclick="showScreen('screen-loadgame')">💾 CARICA PARTITA</button>
+      <button class="btn-outline" onclick="showScreen('screen-codex')">📖 AEON CODEX</button>
+    </div>
+    <div class="intro-footer">
+      <a href="https://pantheraleo-atlasvalley.github.io" target="_blank">Atlas Valley</a> ·
+      <a href="#" onclick="showScreen('screen-sql')">⚙️ Database Setup</a> ·
+      <span>v1.0.0 · Open Source · MIT</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN: NEW GAME
+     ============================================================ -->
+<div id="screen-newgame" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-intro')">← BACK</button>
+    <h2>NUOVA PARTITA</h2>
+  </div>
+  <div class="ng-content">
+    <div class="form-section">
+      <label class="mono-label">// IL TUO NOME, AEONISTA</label>
+      <input type="text" id="ng-name" class="aao-input" placeholder="Inserisci il tuo nome..." maxlength="16"/>
+    </div>
+    <div class="form-section">
+      <label class="mono-label">// SCEGLI IL TUO PERSONAGGIO</label>
+      <div class="character-picker">
+        <div class="char-card active" data-char="panthera_leo" onclick="selectChar(this)">
+          <div class="char-sprite">🐾</div>
+          <div class="char-name">panthera_leo</div>
+          <div class="char-role">Game Director · Combattente</div>
+          <div class="char-stat">+10 ATK · +5 SPE</div>
+        </div>
+        <div class="char-card" data-char="elf_wizard" onclick="selectChar(this)">
+          <div class="char-sprite">🧝</div>
+          <div class="char-name">elf_wizard</div>
+          <div class="char-role">Lead Designer · Stratega</div>
+          <div class="char-stat">+10 SPA · +5 SPD</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-section">
+      <label class="mono-label">// SCEGLI IL TUO AEON STARTER</label>
+      <div class="starter-picker" id="starter-picker">
+        <div class="starter-card active" data-starter="VOLTCUB" onclick="selectStarter(this)">
+          <div class="sc-sprite">⚡🐾</div>
+          <div class="sc-name">VOLTCUB</div>
+          <div class="sc-type electric">ELECTRIC</div>
+          <div class="sc-desc">Veloce e aggressivo. Nato tra le turbine di Atlas Hub.</div>
+          <div class="sc-stats">
+            <span>ATK ████░ 45</span>
+            <span>SPE █████ 90</span>
+          </div>
+        </div>
+        <div class="starter-card" data-starter="SOLARSEED" onclick="selectStarter(this)">
+          <div class="sc-sprite">🌱⚡</div>
+          <div class="sc-name">SOLARSEED</div>
+          <div class="sc-type grass">GRASS</div>
+          <div class="sc-desc">Bilanciato e difensivo. Cresciuto nei giardini verticali.</div>
+          <div class="sc-stats">
+            <span>DEF █████ 55</span>
+            <span>HP ████░ 45</span>
+          </div>
+        </div>
+        <div class="starter-card" data-starter="AQUADRON" onclick="selectStarter(this)">
+          <div class="sc-sprite">🌊🤖</div>
+          <div class="sc-name">AQUADRON</div>
+          <div class="sc-type water">WATER</div>
+          <div class="sc-desc">Robusto e versatile. Guardia degli impianti idrogenici.</div>
+          <div class="sc-stats">
+            <span>HP █████ 50</span>
+            <span>SPA ████░ 55</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn-primary btn-glow btn-full" onclick="startNewGame()">⚡ INIZIA L'AVVENTURA</button>
+    <div id="ng-status" class="form-status" style="display:none"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN: LOAD GAME
+     ============================================================ -->
+<div id="screen-loadgame" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-intro')">← BACK</button>
+    <h2>CARICA PARTITA</h2>
+  </div>
+  <div class="ng-content">
+    <div class="form-section">
+      <label class="mono-label">// PLAYER ID (dal tuo primo salvataggio)</label>
+      <input type="text" id="lg-playerid" class="aao-input" placeholder="Incolla il tuo Player ID..."/>
+    </div>
+    <button class="btn-primary btn-full" onclick="loadGame()">💾 CARICA</button>
+    <div id="lg-status" class="form-status" style="display:none"></div>
+    <div class="lg-alt">
+      <p>Hai salvato nel browser?</p>
+      <button class="btn-outline btn-sm" onclick="loadFromLocalStorage()">📱 Carica dal dispositivo</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN: GAME — WORLD MAP
+     ============================================================ -->
+<div id="screen-game" class="screen">
+  <!-- HUD TOP -->
+  <div class="hud-top">
+    <div class="hud-location">
+      <span class="hud-loc-icon">📍</span>
+      <span id="hud-map-name">Atlas Hub</span>
+    </div>
+    <div class="hud-center">
+      <span class="hud-title">AAO</span>
+    </div>
+    <div class="hud-right">
+      <button class="hud-btn" onclick="showScreen('screen-menu')">☰</button>
+    </div>
+  </div>
+
+  <!-- GAME WORLD CANVAS -->
+  <div class="world-viewport" id="world-viewport">
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Floating elements overlay -->
+    <div class="world-ui-layer" id="world-ui-layer">
+
+      <!-- NPC Dialog Box -->
+      <div class="dialog-box" id="dialog-box" style="display:none">
+        <div class="dialog-portrait" id="dialog-portrait">🐾</div>
+        <div class="dialog-text-area">
+          <div class="dialog-name" id="dialog-name">NPC</div>
+          <div class="dialog-text" id="dialog-text">...</div>
+        </div>
+        <button class="dialog-next" id="dialog-next" onclick="advanceDialog()">▶</button>
+      </div>
+
+      <!-- Notification toast -->
+      <div class="toast" id="toast" style="display:none"></div>
+
+    </div>
+
+    <!-- Wild encounter flash -->
+    <div class="encounter-flash" id="encounter-flash" style="display:none">
+      <div class="ef-inner">
+        <div class="ef-text">⚡ AEON SELVAGGIO!</div>
+        <div class="ef-spinner"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HUD BOTTOM — MOBILE CONTROLS -->
+  <div class="hud-bottom">
+    <!-- D-PAD -->
+    <div class="dpad">
+      <button class="dpad-btn dpad-up" ontouchstart="movePlayer('up')" onclick="movePlayer('up')">▲</button>
+      <div class="dpad-middle">
+        <button class="dpad-btn dpad-left" ontouchstart="movePlayer('left')" onclick="movePlayer('left')">◀</button>
+        <div class="dpad-center">✦</div>
+        <button class="dpad-btn dpad-right" ontouchstart="movePlayer('right')" onclick="movePlayer('right')">▶</button>
+      </div>
+      <button class="dpad-btn dpad-down" ontouchstart="movePlayer('down')" onclick="movePlayer('down')">▼</button>
+    </div>
+
+    <!-- TEAM QUICK VIEW -->
+    <div class="quick-team" id="quick-team"></div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-btns">
+      <button class="act-btn act-a" onclick="actionA()">A</button>
+      <button class="act-btn act-b" onclick="actionB()">B</button>
+      <button class="act-btn act-x" onclick="openTeam()">👥</button>
+      <button class="act-btn act-y" onclick="openBag()">🎒</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN: BATTLE
+     ============================================================ -->
+<div id="screen-battle" class="screen">
+  <!-- Battle scene -->
+  <div class="battle-scene">
+    <div class="battle-bg" id="battle-bg">
+      <div class="battle-terrain" id="battle-terrain"></div>
+    </div>
+
+    <!-- Enemy side -->
+    <div class="battle-enemy-side">
+      <div class="enemy-hud">
+        <div class="enemy-name-line">
+          <span id="enemy-name">VOLTCUB</span>
+          <span class="enemy-type-badge" id="enemy-type">⚡ ELECTRIC</span>
+        </div>
+        <div class="enemy-level">Lv.<span id="enemy-level">5</span></div>
+        <div class="hp-bar-wrapper">
+          <div class="hp-label">HP</div>
+          <div class="hp-bar-track">
+            <div class="hp-bar-fill" id="enemy-hp-bar" style="width:100%"></div>
+          </div>
+          <div class="hp-numbers" id="enemy-hp-numbers">— / —</div>
+        </div>
+      </div>
+      <div class="enemy-sprite" id="enemy-sprite">⚡🐾</div>
+    </div>
+
+    <!-- Player side -->
+    <div class="battle-player-side">
+      <div class="player-sprite-back" id="player-sprite">🐾</div>
+      <div class="player-hud">
+        <div class="player-name-line">
+          <span id="player-aeon-name">VOLTCUB</span>
+          <span class="player-type-badge" id="player-type">⚡</span>
+        </div>
+        <div class="player-level">Lv.<span id="player-level">5</span></div>
+        <div class="hp-bar-wrapper">
+          <div class="hp-label">HP</div>
+          <div class="hp-bar-track">
+            <div class="hp-bar-fill" id="player-hp-bar" style="width:100%"></div>
+          </div>
+          <div class="hp-numbers" id="player-hp-numbers">20 / 20</div>
+        </div>
+        <div class="xp-bar-track">
+          <div class="xp-bar-fill" id="player-xp-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Battle log -->
+  <div class="battle-log" id="battle-log">
+    <div class="log-line" id="battle-log-text">Un AEON selvaggio è apparso!</div>
+  </div>
+
+  <!-- Battle menu -->
+  <div class="battle-menu" id="battle-menu">
+
+    <!-- Main menu -->
+    <div class="battle-main-menu" id="battle-main-menu">
+      <div class="bmm-title">COSA FAI?</div>
+      <div class="bmm-buttons">
+        <button class="battle-btn btn-fight" onclick="showMoveMenu()">⚔️ COMBATTI</button>
+        <button class="battle-btn btn-bag" onclick="showBagMenu()">🎒 ZAINO</button>
+        <button class="battle-btn btn-switch" onclick="showSwitchMenu()">🔄 SWITCHA</button>
+        <button class="battle-btn btn-run" onclick="runFromBattle()">🏃 FUGGI</button>
+      </div>
+    </div>
+
+    <!-- Move menu -->
+    <div class="battle-move-menu" id="battle-move-menu" style="display:none">
+      <div class="move-menu-header">
+        <button class="back-btn-sm" onclick="showMainMenu()">←</button>
+        <span>SCEGLI MOSSA</span>
+      </div>
+      <div class="moves-grid" id="moves-grid"></div>
+    </div>
+
+    <!-- Bag menu -->
+    <div class="battle-bag-menu" id="battle-bag-menu" style="display:none">
+      <div class="move-menu-header">
+        <button class="back-btn-sm" onclick="showMainMenu()">←</button>
+        <span>ZAINO</span>
+      </div>
+      <div class="bag-items-list" id="bag-items-list"></div>
+    </div>
+
+    <!-- Switch menu -->
+    <div class="battle-switch-menu" id="battle-switch-menu" style="display:none">
+      <div class="move-menu-header">
+        <button class="back-btn-sm" onclick="showMainMenu()">←</button>
+        <span>CAMBIA AEON</span>
+      </div>
+      <div class="switch-list" id="switch-list"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN: MENU
+     ============================================================ -->
+<div id="screen-menu" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-game')">← GIOCA</button>
+    <h2>MENU</h2>
+  </div>
+  <div class="menu-grid">
+    <button class="menu-card" onclick="showScreen('screen-team')">
+      <span>👥</span><strong>Il Tuo Team</strong><small>Vedi i tuoi AEON</small>
+    </button>
+    <button class="menu-card" onclick="showScreen('screen-bag')">
+      <span>🎒</span><strong>Zaino</strong><small>Oggetti e risorse</small>
+    </button>
+    <button class="menu-card" onclick="showScreen('screen-codex')">
+      <span>📖</span><strong>AEON Codex</strong><small>Tutti gli AEON</small>
+    </button>
+    <button class="menu-card" onclick="showScreen('screen-map')">
+      <span>🗺️</span><strong>Mappa Mondo</strong><small>Atlas Valley</small>
+    </button>
+    <button class="menu-card" onclick="saveGame()">
+      <span>💾</span><strong>Salva</strong><small>Sincronizza cloud</small>
+    </button>
+    <button class="menu-card" onclick="showScreen('screen-intro')">
+      <span>🏠</span><strong>Menu Principale</strong><small>Torna all'intro</small>
+    </button>
+  </div>
+  <!-- Player info -->
+  <div class="menu-player-info" id="menu-player-info"></div>
+</div>
+
+<!-- ============================================================
+     SCREEN: TEAM
+     ============================================================ -->
+<div id="screen-team" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-menu')">← MENU</button>
+    <h2>IL TUO TEAM</h2>
+  </div>
+  <div id="team-list" class="team-list"></div>
+</div>
+
+<!-- ============================================================
+     SCREEN: BAG
+     ============================================================ -->
+<div id="screen-bag" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-menu')">← MENU</button>
+    <h2>ZAINO</h2>
+  </div>
+  <div id="bag-list" class="bag-list"></div>
+</div>
+
+<!-- ============================================================
+     SCREEN: AEON CODEX
+     ============================================================ -->
+<div id="screen-codex" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-menu')">← MENU</button>
+    <h2>AEON CODEX</h2>
+  </div>
+  <div class="codex-intro">
+    <p class="mono-label">// 20 AEON ORIGINALI · ATLAS VALLEY ECOSYSTEM</p>
+  </div>
+  <div id="codex-grid" class="codex-grid"></div>
+</div>
+
+<!-- ============================================================
+     SCREEN: WORLD MAP
+     ============================================================ -->
+<div id="screen-map" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-menu')">← MENU</button>
+    <h2>MAPPA DI ATLAS VALLEY</h2>
+  </div>
+  <div class="world-map-container" id="world-map-svg"></div>
+  <div class="map-legend">
+    <span>🏙️ Città</span><span>🌿 Percorso</span><span>⚡ Gym</span><span>👑 Council</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCREEN: SQL / DATABASE SETUP
+     ============================================================ -->
+<div id="screen-sql" class="screen">
+  <div class="screen-header">
+    <button class="back-btn" onclick="showScreen('screen-intro')">← BACK</button>
+    <h2>DATABASE SETUP</h2>
+  </div>
+  <div class="sql-content">
+    <div class="sql-info">
+      <div class="section-tag">// SUPABASE · POSTGRESQL · ATLAS VALLEY</div>
+      <h3>AAO Database Schema</h3>
+      <p>Configura il tuo database Supabase per AAO. Copia lo schema SQL e incollalo nell'editor SQL del tuo progetto Supabase.</p>
+      <div class="sql-project-info">
+        <div class="spi-item"><span>📦 Organization</span><strong>pantheraleo-atlasvalley-AAO</strong></div>
+        <div class="spi-item"><span>🗄️ Project</span><strong>AAO</strong></div>
+        <div class="spi-item"><span>🔒 RLS</span><strong>Enabled (Automatic)</strong></div>
+        <div class="spi-item"><span>🌐 Data API</span><strong>Enabled</strong></div>
+        <div class="spi-item"><span>🔁 Auto-expose Tables</span><strong>Yes</strong></div>
+      </div>
+    </div>
+
+    <div class="sql-config-form">
+      <div class="form-section">
+        <label class="mono-label">// SUPABASE URL</label>
+        <input type="text" id="sql-url" class="aao-input" placeholder="https://xxxxxxxxxxxx.supabase.co"/>
+      </div>
+      <div class="form-section">
+        <label class="mono-label">// SUPABASE ANON KEY</label>
+        <input type="text" id="sql-key" class="aao-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."/>
+      </div>
+      <button class="btn-primary" onclick="saveSupabaseConfig()">💾 Salva Configurazione</button>
+    </div>
+
+    <div class="sql-schema-box">
+      <div class="sql-schema-header">
+        <span class="mono-label">// SQL SCHEMA — copia e incolla nel Supabase SQL Editor</span>
+        <button class="btn-sm btn-outline" onclick="copySchema()">📋 Copia</button>
+      </div>
+      <pre class="sql-code" id="sql-schema-display"></pre>
+    </div>
+
+    <div class="sql-steps">
+      <div class="section-tag">// ISTRUZIONI</div>
+      <ol>
+        <li>Vai su <a href="https://supabase.com" target="_blank">supabase.com</a> e crea il progetto <strong>AAO</strong></li>
+        <li>Abilita <strong>Data API</strong>, <strong>Auto-expose tables</strong> e <strong>Automatic RLS</strong></li>
+        <li>Copia l'URL e la Anon Key dal pannello Settings → API</li>
+        <li>Incollali qui sopra e salva</li>
+        <li>Apri l'<strong>SQL Editor</strong> in Supabase</li>
+        <li>Copia e incolla lo schema SQL qui sopra</li>
+        <li>Clicca <strong>Run</strong> e il database è pronto</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     STARTER SELECTION OVERLAY
+     ============================================================ -->
+<div class="overlay" id="starter-overlay" style="display:none">
+  <div class="overlay-box">
+    <div class="overlay-header">
+      <span class="portrait">🐾</span>
+      <span>panthera_leo: Scegli il tuo AEON starter!</span>
+    </div>
+    <div id="starter-overlay-content"></div>
+  </div>
+</div>
+
+<!-- BATTLE RESULT OVERLAY -->
+<div class="overlay" id="battle-result-overlay" style="display:none">
+  <div class="overlay-box">
+    <div id="battle-result-content"></div>
+    <button class="btn-primary btn-full" onclick="exitBattle()">CONTINUA →</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
